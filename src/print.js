@@ -11,23 +11,20 @@ function calculateOutstanding(borderSpacing) {
   return outstanding;
 }
 
-function printOwing (invoice) {
-  let outstanding = 0;
+function generateResult(invoice, outstanding) {
   let result = '***********************\n' +
       '**** Customer Owes ****\n' +
       '***********************\n';
-
-  // calculate outstanding
-  outstanding = calculateOutstanding(invoice.borderSpacing);
-
-  // record due date
-  invoice.dueDate = generateDate();
-
-  // print details
   result += `name: ${invoice.customer}\n`;
   result += `amount: ${outstanding}\n`;
   result += `amount: ${invoice.dueDate}\n`;
   return result;
+}
+
+function printOwing (invoice) {
+  let outstanding = calculateOutstanding(invoice.borderSpacing);
+  invoice.dueDate = generateDate();
+  return generateResult(invoice, outstanding);
 }
 
 module.exports = {
