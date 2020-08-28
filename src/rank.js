@@ -50,7 +50,7 @@ function calculateVoyageAndHistoryHasChina(result, history, voyage) {
     return result;
 }
 
-function calculateVogayeAndHistoryHasNoChina(history, result, voyage) {
+function calculateVoyageAndHistoryHasNoChina(history, result, voyage) {
     if (history.length > 8) {
         result += 1;
     }
@@ -68,7 +68,7 @@ function voyageProfitFactor(voyage, history) {
     if (voyage.zone === 'china' && hasChina(history)) {
         result = calculateVoyageAndHistoryHasChina(result, history, voyage);
     } else {
-        result = calculateVogayeAndHistoryHasNoChina(history, result, voyage);
+        result = calculateVoyageAndHistoryHasNoChina(history, result, voyage);
     }
     return result;
 }
