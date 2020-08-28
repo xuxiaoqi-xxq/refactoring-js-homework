@@ -3,6 +3,14 @@ function generateDate() {
   return new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30).toLocaleDateString();
 }
 
+function calculateOutstanding(borderSpacing) {
+  let outstanding = 0;
+  for (const o of borderSpacing) {
+    outstanding += o.amount;
+  }
+  return outstanding;
+}
+
 function printOwing (invoice) {
   let outstanding = 0;
   let result = '***********************\n' +
@@ -10,9 +18,7 @@ function printOwing (invoice) {
       '***********************\n';
 
   // calculate outstanding
-  for (const o of invoice.borderSpacing) {
-    outstanding += o.amount;
-  }
+  outstanding = calculateOutstanding(invoice.borderSpacing);
 
   // record due date
   invoice.dueDate = generateDate();
