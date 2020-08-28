@@ -62,10 +62,7 @@ function calculateVogayeAndHistoryHasNoChina(history, result, voyage) {
 
 function voyageProfitFactor(voyage, history) {
     let result = 2;
-    if (voyage.zone === 'china') {
-        result += 1;
-    }
-    if (voyage.zone === 'east-indies') {
+    if (voyage.zone === 'china' || voyage.zone === 'east-indies') {
         result += 1;
     }
     if (voyage.zone === 'china' && hasChina(history)) {
