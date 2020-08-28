@@ -1,10 +1,6 @@
 const test = require('ava');
 const { rating, voyageProfitFactor, voyageRisk, captainHistoryRisk} = require('../src/rank.js');
 
-const voyage = {
-    zone: 'east-indies',
-    length: 10,
-};
 const history = [
     {
         zone: 'east-indies',
