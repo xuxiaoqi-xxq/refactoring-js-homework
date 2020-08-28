@@ -6,13 +6,14 @@ class Employee {
   }
 
   validateType (type) {
-    if (![
-      'engineer',
-      'manager',
-      'salesman',
-    ].includes(type)) {
+    if (!this.isTypeInRage(type)) {
       throw new Error(`Employee cannot be of type ${type}`);
     }
+  }
+
+  isTypeInRage(type) {
+    let range = ['engineer', 'manager', 'salesman'];
+    return range.includes(type);
   }
 
   toString () {
